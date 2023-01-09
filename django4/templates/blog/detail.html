@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    The post detail page
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">This is a content block from detail.html</h1>
+    <h2 class="text-center">Post {{ post.id }} Detail Page</h2>
+
+        <div class="card mb-2 shadow">
+                <h4 class="card-header">{{ post.id }}.     {{ post.title }}</h4>
+                <p class="card-body">{{ post.body }}</p>
+            <div class="card-footer d-flex justify-content-between">
+                <div>
+                    Опубликован: <strong>{{ post.publish }}</strong>
+                </div>
+                <div>
+                    Автор: <strong class="text-end">{{ post.author }}</strong>
+                </div>
+            </div>
+        </div>
+
+</div>
+
+{% endblock %}

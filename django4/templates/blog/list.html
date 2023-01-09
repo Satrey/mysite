@@ -9,10 +9,17 @@
     <h1 class="text-center">This is a content block from list.html</h1>
     <h2 class="text-center">Post List</h2>
     {% for item in post %}
-        <div class="card mb-2 shadow">
+        <div class="card mb-3 shadow">
                 <h4 class="card-header">{{ item.id }}     {{ item.title }}</h4>
                 <p class="card-body">{{ item.body }}</p>
-                <p class="card-footer">{{ item.publish }}</p>
+                <div class="card-footer d-flex justify-content-between">
+                    <div>
+                        <strong>{{ item.publish }}</strong>
+                    </div>
+                    <div>
+                        <strong>{{ item.author }}</strong>
+                    </div>
+                </div>
         </div>
     {% endfor %}
 </div>
