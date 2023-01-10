@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'blog/base.html' %}
 
 {% block title %}
     The post list page
@@ -10,8 +10,12 @@
     <h2 class="text-center">Post List</h2>
     {% for item in post %}
         <div class="card mb-3 shadow">
-                <h4 class="card-header">{{ item.id }}     {{ item.title }}</h4>
-                <p class="card-body">{{ item.body }}</p>
+                <h4 class="card-header">
+                    <a class="text-decoration-none" href="{% url 'blog:post_detail' item.id %}">
+                        {{ item.id }}     {{ item.title }}
+                    </a>
+                </h4>
+                <p class="card-body">{{ item.body|truncatewords:30 }}</p>
                 <div class="card-footer d-flex justify-content-between">
                     <div>
                         <strong>{{ item.publish }}</strong>
