@@ -11,7 +11,7 @@
     {% for item in post %}
         <div class="card mb-3 shadow">
                 <h4 class="card-header">
-                    <a class="text-decoration-none" href="{% url 'blog:post_detail' item.id %}">
+                    <a class="text-decoration-none" href="{{ post.get_absolute_url }}">
                         {{ item.id }}     {{ item.title }}
                     </a>
                 </h4>
