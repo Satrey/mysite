@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        {% if page.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page.previous_page_number }}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Предыдущая</span>
+            </a>
+          </li>
+        {% endif %}
+        {% for page_number in page.paginator %}
+          <li class="page-item"><a class="page-link" href="?page={{ page_number.number }}">{{ page_number.number }}</a></li>
+        {% endfor %}
+        {% if page.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page.next_page_number }}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Следующая</span>
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+  <div class="container">
+    <hr>
+  </div>
+
+  <div>
+    <span class="current">
+      <strong>Страница {{ page.number }} из {{ page.paginator.num_pages }}</strong>>
+    </span>
+  </div>
+</div>

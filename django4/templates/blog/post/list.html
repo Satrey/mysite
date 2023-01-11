@@ -1,18 +1,18 @@
 {% extends 'blog/base.html' %}
 
 {% block title %}
-    The post list page
+    Список постов
 {% endblock %}
 
 {% block content %}
 <div class="container">
-    <h1 class="text-center">This is a content block from list.html</h1>
-    <h2 class="text-center">Post List</h2>
-    {% for item in post %}
+    <h1 class="text-center">Добро пожаловать на сайт</h1>
+    <h2 class="text-center">Список публикаций</h2>
+    {% for item in posts %}
         <div class="card mb-3 shadow">
                 <h4 class="card-header">
-                    <a class="text-decoration-none" href="{{ post.get_absolute_url }}">
-                        {{ item.id }}     {{ item.title }}
+                    <a class="text-decoration-none" href="{{ item.get_absolute_url }}">
+                        {{ item.title }}
                     </a>
                 </h4>
                 <p class="card-body">{{ item.body|truncatewords:30 }}</p>
@@ -27,5 +27,7 @@
         </div>
     {% endfor %}
 </div>
-
+<div class="text-center d-flex justify-content-center">
+    {% include 'blog/post/pagination.html' with page=posts %}
+</div>
 {% endblock %}

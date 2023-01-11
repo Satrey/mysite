@@ -6,27 +6,26 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="text-center">This is a content block from detail.html</h1>
-    <h2 class="text-center">Post {{ post.id }} Detail Page</h2>
+    <h1 class="text-center">Страница публикации номер  {{ post.id }}</h1>
+    <h2 class="text-center text-primary">{{ post.title }}</h2>
 
-        <div class="card mb-2 shadow">
-                <h4 class="card-header">{{ post.id }}.     {{ post.title }}</h4>
-                <p class="card-body">{{ post.body }}</p>
-            <div class="card-footer d-flex justify-content-between">
-                <div>
-                    Опубликован: <strong>{{ post.publish }}</strong>
-                </div>
-                <div>
-                    Автор: <strong class="text-end">{{ post.author }}</strong>
-                </div>
+    <div class="card mb-2 shadow">
+            <h4 class="card-header">{{ post.id }}.     {{ post.title }}</h4>
+            <p class="card-body">{{ post.body }}</p>
+        <div class="card-footer d-flex justify-content-between">
+            <div>
+                Опубликован: <strong>{{ post.publish }}</strong>
             </div>
-            <div class="p-3 d-flex justify-content-end">
-                <a type="button" class="btn btn-primary" href="{% url 'blog:post_list' %}">
-                    Back to list
-                </a>
+            <div>
+                Автор: <strong class="text-end">{{ post.author }}</strong>
             </div>
         </div>
-
+        <div class="p-3 d-flex justify-content-end">
+            <a type="button" class="btn btn-primary" href="{% url 'blog:post_list' %}">
+                Back to list
+            </a>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
