@@ -6,11 +6,13 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="text-center">Страница публикации номер  {{ post.id }}</h1>
-    <h2 class="text-center text-primary">{{ post.title }}</h2>
-
+    <div>
+        <h1 class="text-center">Страница публикации номер  {{ post.id }}</h1>
+        <h2 class="text-center text-primary">{{ post.title }}</h2>
+    </div>
+    <hr>
     <div class="card mb-2 shadow">
-            <h4 class="card-header">{{ post.id }}.     {{ post.title }}</h4>
+            <h4 class="card-header text-primary">{{ post.title }}</h4>
             <p class="card-body">{{ post.body }}</p>
         <div class="card-footer d-flex justify-content-between">
             <div>
