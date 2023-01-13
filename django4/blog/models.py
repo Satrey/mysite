@@ -32,6 +32,8 @@ class Post(models.Model):
         indexes = [
             models.Index(fields=['-publish']),
         ]
+        verbose_name = ("Пост")
+        verbose_name_plural = ('Посты')
 
     def __str__(self):
         return self.title
@@ -59,6 +61,8 @@ class Comment(models.Model):
         indexes = [
             models.Index(fields=['created'])
         ]
+        verbose_name = ('Коментарий')
+        verbose_name_plural = ('Коментарии')
 
     def __str__(self):
         return f'Comment by {self.name} on {self.post}'
