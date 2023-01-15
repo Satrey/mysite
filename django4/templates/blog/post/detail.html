@@ -11,7 +11,7 @@
         <h2 class="text-center text-primary">{{ post.title }}</h2>
     </div>
     <hr>
-    <div class="card mb-2 shadow">
+    <div class="card mb-2 shadow-lg">
             <h4 class="card-header text-primary">{{ post.title }}</h4>
             <p class="card-body">{{ post.body }}</p>
         <div class="card-footer d-flex justify-content-between">
@@ -38,6 +38,7 @@
             </h4>
         {% endwith %}
         {% for comment in comments %}
+        <hr>
         <div class="comment">
             <p class="info">
                 Comment {{ forloop.counter }}  by  {{ comment.name }}
@@ -45,6 +46,7 @@
             </p>
             {{ comment.body|linebreaks }}
         </div>
+        <hr>
         {% empty %}
             <p>There are no comments</p>
         {% endfor %}
