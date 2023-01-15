@@ -16,7 +16,12 @@
         <form method="post">
             {{ form.as_p }}
             {% csrf_token %}
-            <input type="submit" value="Send e-mail">
+            <div class="d-flex justify-content-between">
+                <input type="submit" value="Send e-mail">
+                <a type="button" class="btn btn-primary" href="{% url 'blog:post_list' %}">
+                    Back to list
+                </a>
+            </div>
         </form>
     {% endif %}
 {% endblock %}
