@@ -1,9 +1,9 @@
 from django.core.mail import send_mail
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+# from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404
 
 from .forms import EmailPostForm, CommentForm
-from .models import Post, Comment
+from .models import Post  # Comment
 from django.views.generic import ListView
 from django.views.decorators.http import require_POST
 
@@ -60,7 +60,7 @@ def post_share(request, post_id):
             message = f"Read {post.title} at {post_url}\n\n" \
                       f"{cd['name']}\'s comment: {cd['comments']}"
             send_mail(subject, message, 'satrey.mail@gmail.com', [cd['to']])
-            sent=True
+            sent = True
 
     else:
         form = EmailPostForm()
@@ -82,4 +82,3 @@ def post_comment(request, post_id):
     return render(request, 'blog/post/comment.html', {'post': post,
                                                       'form': form,
                                                       'comment': comment})
-
